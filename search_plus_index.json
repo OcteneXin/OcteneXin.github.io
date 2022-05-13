@@ -1,41 +1,86 @@
-{"/jekyll-gitbook/pages/about/": {
-    "title": "About",
-    "keywords": "Jekyll",
-    "url": "/jekyll-gitbook/pages/about/",
-    "body": "This is an about page."
-  },"/jekyll-gitbook/pages/contact/": {
-    "title": "Contact",
-    "keywords": "Jekyll",
-    "url": "/jekyll-gitbook/pages/contact/",
-    "body": "This is an contact page."
-  },"/jekyll-gitbook/pages/design/draft/": {
-    "title": "Design Draft",
-    "keywords": "Jekyll",
-    "url": "/jekyll-gitbook/pages/design/draft/",
-    "body": "This is an draft page."
-  },"/jekyll-gitbook/2022-05-13-Ubuntu18.04%E7%8E%AF%E5%A2%83%E7%AE%80%E6%98%93%E6%90%AD%E5%BB%BA.html": {
-    "title": "Ubuntu18.04环境简易搭建",
-    "keywords": "",
-    "url": "/jekyll-gitbook/2022-05-13-Ubuntu18.04%E7%8E%AF%E5%A2%83%E7%AE%80%E6%98%93%E6%90%AD%E5%BB%BA.html",
-    "body": "Ubuntu18.04环境简易搭建 目录 一、准备工作 1.下载Ubuntu映像 2.下载VMware 3.下载Xshell和Xftp 二、配置VMware 三、开始安装Ubuntu系统 四、配置Ubuntu内部环境 1.解决apt-get问题 2.VMtools 3.配置ssh和远程连接 4.安装vim 五、后记 一、准备工作 1.下载Ubuntu映像 在官网下载Ubuntu桌面版iso文件。 https://releases.ubuntu.com/18.04/ 向下翻，找到这个文件，点击后开始下载，接着耐心等待一段时间（此过程一般半个小时左右） 2.下载VMware 在等待Ubuntu镜像的时候，我们可以趁机下载点儿别的。 链接：https://pan.baidu.com/s/1nzxDoFIaOYI9XFwF50U5ew 提取码：70f9 按正常流程安装即可，只是尽量不要装在系统盘。 许可证密钥参考这个链接：http://www.errornoerror.com/question/1585959666661114/ 3.下载Xshell和Xftp 下载地址：Xshell7_Xftp7,Xmanager7下载-xshellcn 要填可用的手机号和邮箱，其它的无所谓。填写后，获取验证码就能正常下载了。 Xshell 7和Xftp 7都要下。 安装流程与一般软件无异。 安装完成后 ，Ubuntu这会儿应该也下载下来了，我们接下来开始配置虚拟机。 二、配置VMware 三、开始安装Ubuntu系统 虚拟机开机后，鼠标往往会被虚拟机窗口捕获，这时可以按ctrl+alt脱离虚拟机窗口。 在安装了VMtools之后，此问题会得到完美解决。 现在我们要做的唯一事情，就是去喝杯咖啡等着，大约半小时后会安装完成。 好了，安装完成，我们回来了！ 重启后，显示这个界面。 虚拟机窗口太小了，怎么办？点击图上的按键即可自适应缩放。点击小三角可以决定是自由缩放还是保持纵横比缩放。 鼠标按住画面向上拖动，显示登录界面。 输入账号密码后，等待片刻即可进入系统，不久后就会显示一个弹窗。 途中如果弹出更新提示，切记，不要更新！ 后面基本上就是一路next就行了。注意，不要下载更新。 接下来的几步next就不截了，因为，用户向导界面突然卡住了，关也关不掉…… 四、配置Ubuntu内部环境 经过片刻等待，用户向导界面终于被关掉了。现在的任务有这么几个： 解决apt-get问题 安VMtools 配置ssh 安装文本编辑器vim 接下来一步步完成。 1.解决apt-get问题 众所周知，Ubuntu的镜像源在国内访问极其慢，需要修改镜像源。 为什么放第一个呢？因为不管是ssh、vim还是VMtools，全部都要apt下载。不改镜像源的话，慢得不可理喻的网速就会接下来所有的步骤寸步难行。 前提：虚拟机已经连上网。没联网的，如下操作： 右键桌面，打开终端。 一定一定要修改镜像源！不要直接apt update！ 本人刚刚已经踩过一次坑，这个东西太慢了，太慢了，太慢了……（下载个vim都要两个小时的这种） 如果能改镜像源的话，早就改了。可是在没有远程控制和VMtools的阶段，唯一的办法恐怕就是手打将近五六十行的镜像地址（这是不可接受的） 我尝试过很多奇妙的办法，但是事实证明，原机和虚拟机剪贴板不能互通，一切粘贴策略均无效。vi（因为没有vim），gedit均不能粘贴来自windows剪贴板的内容，已经查过很多资料，没有找到解决办法。 以下方法来自大神的博客（原链接发不出来），这适用于没有VMtools，没有Xshell，甚至没有图形化界面的一穷二白的情况： sudo apt install git git clone https://gitee.com/isfive/linux-apt-get-aliyun.git sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak sudo rm /etc/apt/sources.list cd linux-apt-get-aliyun ls #以下命令根据自己的Ubuntu版本号而定，这里是18.04 cd ./18.04 sudo cp ./sources.list /etc/apt/sources.list sudo apt-get update 下载git时也许需要1到2分钟。 2.VMtools VMtools成功安装的前提也是apt配置成功，所以利用VMtools复制粘贴的想法不能在前面实现。 一定要配好apt再装这个！不然，两天都装不完…… 简要来说，就三行命令： sudo apt-get autoremove open-vm-tools sudo apt-get install open-vm-tools sudo apt-get install open-vm-tools-desktop 执行完了，记得重启。重启之后，在Windows复制的东西，到了虚拟机里面，右键，点击paste也好使了。 3.配置ssh和远程连接 写在前面： 每次使用Xshell连接虚拟机时，最好都使用ifconfig看一下ip地址。之前测试的时候发现，Ubuntu虚拟机的ip地址似乎在每次开机后会改变，之前保存的Xshell连接就不能用了。 我们现在还没有安装openssh-server。用apt安装后，启动服务， 并且用ps -e检查一下是否成功开启sshd。 sudo apt-get install openssh-server /etc/init.d/ssh start ps -e | grep sshd 当看到如下结果时，说明配置成功。 输入以下命令获取虚拟机ip地址： ifconfig 如果出现以下情况： 则先执行以下命令，再返回去执行ifconfig。 sudo apt install net-tools 执行ifconfig之后，记录一下虚拟机的ip地址，然后打开我们之前下载的Xshell。 点击会话窗口里的“新建” 出现以下画面，就说明连接成功了！此时这个黑窗口就相当于Ubuntu的终端，我们可以在里面执行命令。 点这个，即可打开Xftp并自动建立文件传输。如果没有这个按键，那么自行打开Xftp软件，按连接Xshell的相同办法操作即可。 出现这个画面就是Xftp连接成功，可以两边相互拖拽文件啦！ 4.安装vim 安装了Xshell、建立远程连接之后，我们的很多指令其实是在Xshell上完成的。现在让我们安装一下vim。 在Xshell的窗口输入： sudo apt install vim 五、后记 安装虚拟机这件事，关键还是要自己来一遍，才知道问题其实很多。 尤其是apt配置那一步，在没改镜像源之前，耐心等待了八个小时，apt update这一行指令才断断续续地跑完了。 很多事情都不是蛮力可以解决的，一定要多查资料，多想，多动手，经验就在无形之中积累起来了。 希望这篇文章可以帮助到更多的小伙伴们！"
-  },"/jekyll-gitbook/jekyll/2021-08-10-toc.html": {
-    "title": "How to Generate TOC",
-    "keywords": "Jekyll",
-    "url": "/jekyll-gitbook/jekyll/2021-08-10-toc.html",
-    "body": "The jekyll-gitbook theme leverages jekyll-toc to generate the Contents for the page. The TOC feature is not enabled by default. To use the TOC feature, modify the TOC configuration in _config.yml: toc: enabled: true Why this repo long contents ….. a b c d Why this repo long contents ….. 1 2 3 4 Why this repo long contents ….. e f g h Why this repo 5 6 7 8 Why this repo long contents ….. a b c d Why this repo long contents ….. 1 2 3 4 Why this repo long contents ….. e f g h Why this repo 5 6 7 8 Why this repo long contents ….. a b c d Why this repo long contents ….. 1 2 3 4 Why this repo long contents ….. e f g h Why this repo 5 6 7 8 Why this repo long contents ….. a b c d Why this repo long contents ….. 1 2 3 4 Why this repo long contents ….. e f g h Why this repo 5 6 7 8"
-  },"/jekyll-gitbook/jekyll/2019-04-29-license.html": {
-    "title": "License",
-    "keywords": "Jekyll",
-    "url": "/jekyll-gitbook/jekyll/2019-04-29-license.html",
-    "body": "This work is open sourced under the Apache License, Version 2.0, using the same license as the original GitBook repository. Copyright 2019 Tao He."
-  },"/jekyll-gitbook/jekyll/2019-04-28-howto.html": {
-    "title": "How to Get Started",
-    "keywords": "Jekyll",
-    "url": "/jekyll-gitbook/jekyll/2019-04-28-howto.html",
-    "body": "The jekyll-gitbook theme can be used just as other Jekyll themes. Fork this repository and add your markdown posts to the _posts folder, then push to your own Github repository. No need to push generated HTML bundle."
-  },"/jekyll-gitbook/jekyll/2019-04-27-why.html": {
-    "title": "Why Jekyll with GitBook",
-    "keywords": "Jekyll",
-    "url": "/jekyll-gitbook/jekyll/2019-04-27-why.html",
-    "body": "GitBook is an amazing frontend style to present and organize contents (such as book chapters and blogs) on Web. The typical to deploy GitBook at Github Pages is building HTML files locally and then push to Github repository, usually to the gh-pages branch. However, it’s quite annoying to repeat such workload and make it hard for people do version control via git for when there are generated HTML files to be staged in and out. This theme takes style definition out of generated GitBook site and provided the template for Jekyll to rendering markdown documents to HTML, thus the whole site can be deployed to Github Pages without generating and uploading HTML bundle every time when there are changes to the original repository."
-  }}
+---
+# Content index for gitbook-plugin-search-pro
+layout: null
+---
+
+{%- assign index = "" | split: "" -%}
+{%- assign excluded_files = site.gitbook_search.exclude.files -%}
+{%- assign excluded_tags = site.gitbook_search.exclude.tags | uniq -%}
+{%- assign excluded_categories = site.gitbook_search.exclude.categories | uniq -%}
+{%- assign excluded_taxonomies = excluded_tags | concat: excluded_categories | uniq -%}
+{%- for collection in site.collections -%}
+  {%- if collection.output -%}
+    {%- for post in site[collection.label] -%}
+      {%- unless post.exclude_from_search == true or excluded_files contains post.path -%}
+        {%- assign has_excluded_taxonomy = false -%}
+        {%- for tag in post.tags -%}
+          {%- if excluded_taxonomies contains tag -%}
+            {%- assign has_excluded_taxonomy = true -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- for category in post.categories -%}
+          {%- if excluded_taxonomies contains category -%}
+            {%- assign has_excluded_taxonomy = true -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- unless has_excluded_taxonomy == true -%}
+          {%- assign index = index | push: post | uniq -%}
+        {%- endunless -%}
+      {%- endunless -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if site.gitbook_search.include.pages == true -%}
+  {%- for page in site.html_pages -%}
+    {%- unless page.exclude_from_search == true or excluded_files contains page.path -%}
+      {%- assign has_excluded_taxonomy = false -%}
+      {%- for tag in page.tags -%}
+        {%- if excluded_taxonomies contains tag -%}
+          {%- assign has_excluded_taxonomy = true -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- for category in page.categories -%}
+        {%- if excluded_taxonomies contains category -%}
+          {%- assign has_excluded_taxonomy = true -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- unless has_excluded_taxonomy == true -%}
+        {%- assign index = index | push: page | uniq -%}
+      {%- endunless -%}
+    {%- endunless -%}
+  {%- endfor -%}
+{%- endif -%}
+{%- for collection in site.gitbook_search.include.collections -%}
+  {%- assign documents = site.documents | where:"collection",collection -%}
+  {%- for document in documents -%}
+    {%- unless document.exclude_from_search == true or excluded_files contains document.path -%}
+      {%- assign has_excluded_taxonomy = false -%}
+      {%- for tag in document.tags -%}
+        {%- if excluded_taxonomies contains tag -%}
+          {%- assign has_excluded_taxonomy = true -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- for category in document.categories -%}
+        {%- if excluded_taxonomies contains category -%}
+          {%- assign has_excluded_taxonomy = true -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- unless has_excluded_taxonomy == true -%}
+        {%- assign index = index | push: document | uniq -%}
+      {%- endunless -%}
+    {%- endunless -%}
+  {%- endfor -%}
+{%- endfor -%}
+{
+{%- for document in index -%}
+  {%- assign tags = document.tags | uniq -%}
+  {%- assign categories = document.categories | uniq -%}
+  {%- assign taxonomies = tags | concat: categories | uniq -%}
+  {{ document.url | relative_url | jsonify }}: {
+    "title": {{ document.title | smartify | strip_html | normalize_whitespace | jsonify }},
+    "keywords": {{ taxonomies | join: " " | normalize_whitespace | jsonify }},
+    "url": {{ document.url | relative_url | jsonify }},
+    "body": {{ document.content | strip_html | normalize_whitespace | jsonify }}
+  }{%- unless forloop.last -%},{%- endunless -%}
+{%- endfor -%}
+}
