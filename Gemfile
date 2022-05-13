@@ -9,3 +9,5 @@ gem 'jemoji'
 gem 'webrick'
 
 # gem "rails"
+
+gem "kramdown-syntax-coderay", "~> 1.0"
