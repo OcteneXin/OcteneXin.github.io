@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en" >
     <head><meta charset="UTF-8">
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"><title>Jekyll Gitbook</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"><title>Contact · Jekyll Gitbook</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="description" content="Build Jekyll site with the GitBook style.
 "><meta name="generator" content="Jekyll (using style of GitBook 3.2.3)"><meta name="author" content="HE Tao"><link rel="stylesheet" href="/jekyll-gitbook/gitbook/style.css">
 <link rel="stylesheet" href="/jekyll-gitbook/gitbook/gitbook-plugin-fontsettings/website.css">
@@ -33,9 +33,11 @@
         }
     };
 </script>
+            <link rel="prev" href="/jekyll-gitbook/pages/about/" />
+        
 
         
-            <link rel="next" href="/jekyll-gitbook/jekyll/2019-04-27-why.html" />
+            <link rel="next" href="/jekyll-gitbook/pages/design/draft/" />
         
     </head>
     <body>
@@ -49,7 +51,7 @@
         </div>
         <ul class="summary">
             
-            <li class="chapter active" data-level="1.1" data-path="/jekyll-gitbook">
+            <li class="chapter" data-level="1.1" data-path="/jekyll-gitbook">
             
                 <a href="/jekyll-gitbook/">
                     Jekyll Gitbook
@@ -76,12 +78,15 @@
                         </li>
                     
                         
-                        <li class="chapter" data-level="1.1" data-path="/jekyll-gitbook/pages/contact/">
+                        <li class="chapter active" data-level="1.2" data-path="/jekyll-gitbook/pages/contact/">
                         
                             <a href="/jekyll-gitbook/pages/contact/">
                                 Contact
                             </a>
                             
+                                
+                                    
+
                                 
                             
                         </li>
@@ -180,7 +185,7 @@
                     <h1>
                         <i class="fa fa-circle-o-notch fa-spin"></i>
                         
-                            <a href="." >Jekyll Gitbook</a>
+                            <a href="." >Contact</a>
                         
                     </h1>
                 </div>
@@ -192,107 +197,10 @@
                 <section class="normal markdown-section">
 
                     
-                        <h1 id="">Jekyll Gitbook</h1>
+                        <h1 id="/pages/contact">Contact</h1>
                     
 
-                    <p>Make Jelly site have a GitBook look!</p>
-
-<h2 id="demo">Demo</h2>
-
-<p>Live demo on Github Pages: <a href="https://sighingnow.github.io/jekyll-gitbook">https://sighingnow.github.io/jekyll-gitbook</a></p>
-
-<p><a href="https://jekyll-themes.com/jekyll-gitbook/"><img src="https://img.shields.io/badge/featured%20on-JekyllThemes-red.svg" alt="Jekyll Themes" /></a></p>
-
-<h2 id="why-jekyll-with-gitbook">Why Jekyll with GitBook</h2>
-
-<p>GitBook is an amazing frontend style to present and organize contents (such as book chapters
-and blogs) on Web. The typical to deploy GitBook at <a href="https://pages.github.com">Github Pages</a>
-is building HTML files locally and then push to Github repository, usually to the <code class="language-plaintext highlighter-rouge">gh-pages</code>
-branch. It’s quite annoying to repeat such workload and make it hard for people do version
-control via git for when there are generated HTML files to be staged in and out.</p>
-
-<p>This theme takes style definition out of generated GitBook site and provided the template
-for Jekyll to rendering markdown documents to HTML, thus the whole site can be deployed
-to <a href="https://pages.github.com">Github Pages</a> without generating and uploading HTML bundle every time when there are
-changes to the original repo.</p>
-
-<h2 id="how-to-get-started">How to Get Started</h2>
-
-<p>This theme can be used just as other <a href="https://pages.github.com">Jekyll themes</a>.</p>
-
-<p><a href="https://github.com/sighingnow/jekyll-gitbook/fork">Fork</a> this repository and add your markdown posts to the <code class="language-plaintext highlighter-rouge">_posts</code> folder.</p>
-
-<h3 id="deploy-locally-with-jekyll-serve">Deploy Locally with Jekyll Serve</h3>
-
-<p>This theme can be ran locally using Ruby and Gemfiles.</p>
-
-<p><a href="https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll">Testing your GitHub Pages site locally with Jekyll</a> - GitHub</p>
-
-<h2 id="full-text-search">Full-text search</h2>
-
-<p>The search functionality in jekyll-gitbook theme is powered by the <a href="https://github.com/gitbook-plugins/gitbook-plugin-search-pro">gitbook-plugin-search-pro</a> plugin and is enabled by default.</p>
-
-<p><a href="https://sighingnow.github.io/jekyll-gitbook/?q=generated">https://sighingnow.github.io/jekyll-gitbook/?q=generated</a></p>
-
-<h2 id="code-highlight">Code highlight</h2>
-
-<p>The code highlight style is configurable the following entry in <code class="language-plaintext highlighter-rouge">_config.yaml</code>:</p>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">syntax_highlighter_style</span><span class="pi">:</span> <span class="s">colorful</span>
-</code></pre></div></div>
-
-<p>The default code highlight style is <code class="language-plaintext highlighter-rouge">colorful</code>, the full supported styles can be found from <a href="https://github.com/rouge-ruby/rouge/tree/master/lib/rouge/themes">the rouge repository</a>. Customized
-style can be added to <a href="./gitbook/rouge/">./gitbook/rouge/</a>.</p>
-
-<h2 id="how-to-generate-toc">How to generate TOC</h2>
-
-<p>The jekyll-gitbook theme leverages <a href="https://github.com/allejo/jekyll-toc">jekyll-toc</a> to generate the <em>Contents</em> for the page.
-The TOC feature is not enabled by default. To use the TOC feature, modify the TOC
-configuration in <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">toc</span><span class="pi">:</span>
-    <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
-    <span class="na">h_min</span><span class="pi">:</span> <span class="m">1</span>
-    <span class="na">h_max</span><span class="pi">:</span> <span class="m">3</span>
-</code></pre></div></div>
-
-<h2 id="google-analytics-etc">Google Analytics, etc.</h2>
-
-<p>The jekyll-gitboook theme supports embedding the <a href="https://analytics.google.com/analytics/web/">Google Analytics</a>, <a href="https://www.cnzz.com/">CNZZ</a> and [Application Insights][9] website analytical tools with the following
-minimal configuration in <code class="language-plaintext highlighter-rouge">_config.yaml</code>:</p>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">tracker</span><span class="pi">:</span>
-  <span class="na">google_analytics</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;YOUR</span><span class="nv"> </span><span class="s">GOOGLE</span><span class="nv"> </span><span class="s">ANALYTICS</span><span class="nv"> </span><span class="s">KEY,</span><span class="nv"> </span><span class="s">e.g,</span><span class="nv"> </span><span class="s">UA-xxxxxx-x&gt;"</span>
-</code></pre></div></div>
-
-<p>Similarly, CNZZ can be added with the following configuration in <code class="language-plaintext highlighter-rouge">_config.yaml</code></p>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">tracker</span><span class="pi">:</span>
-  <span class="na">cnzz</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;YOUR</span><span class="nv"> </span><span class="s">CNZZ</span><span class="nv"> </span><span class="s">ANALYTICS</span><span class="nv"> </span><span class="s">KEY,</span><span class="nv"> </span><span class="s">e.g.,</span><span class="nv"> </span><span class="s">xxxxxxxx&gt;"</span>
-</code></pre></div></div>
-
-<p>Application Insights can be added with the following configuration in <code class="language-plaintext highlighter-rouge">_config.yaml</code></p>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">tracker</span><span class="pi">:</span>
-  <span class="na">application_insights</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;YOUR</span><span class="nv"> </span><span class="s">APPLICATION</span><span class="nv"> </span><span class="s">INSIGHTS</span><span class="nv"> </span><span class="s">CONNECTION</span><span class="nv"> </span><span class="s">STRING&gt;"</span>
-</code></pre></div></div>
-
-<h2 id="extra-stylesheet-or-javascript-elements">Extra StyleSheet or Javascript elements</h2>
-
-<p>You can add extra CSS or JavaScript references using configuration collections:</p>
-
-<ul>
-  <li>extra_css: for additional style sheets. If the url does not start by http, the path must be relative to the root of the site, without a starting <code class="language-plaintext highlighter-rouge">/</code>.</li>
-  <li>extra_header_js: for additional scripts to be included in the <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code> tag, after the <code class="language-plaintext highlighter-rouge">extra_css</code> has been added. If the url does not start by http, the path must be relative to the root of the site, without a starting <code class="language-plaintext highlighter-rouge">/</code>.</li>
-  <li>extra_footer_js: for additional scripts to be included at the end of the HTML document, just before the site tracking script. If the url does not start by http, the path must be relative to the root of the site, without a starting <code class="language-plaintext highlighter-rouge">/</code>.</li>
-</ul>
-
-<h2 id="license">License</h2>
-
-<p>This work is open sourced under the Apache License, Version 2.0.</p>
-
-<p>Copyright 2019 Tao He.</p>
-
+                    <p>This is an contact page.</p>
 
                 </section>
             </div><div class="search-results">
@@ -307,7 +215,13 @@ minimal configuration in <code class="language-plaintext highlighter-rouge">_con
     </div>
 </div>
 
-                        <a href="/jekyll-gitbook/jekyll/2019-04-27-why.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Why Jekyll with GitBook">
+                        <a href="/jekyll-gitbook/pages/about/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: About">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                    
+
+                    
+                        <a href="/jekyll-gitbook/pages/design/draft/" class="navigation navigation-next navigation-unique" aria-label="Next page: Design Draft">
                             <i class="fa fa-angle-right"></i>
                         </a>
                     
@@ -323,14 +237,12 @@ minimal configuration in <code class="language-plaintext highlighter-rouge">_con
         "level": "1.1",
         "depth": 1,
         
-
-        
         "next": {
-            "title": "Why Jekyll with GitBook",
+            "title": "Design Draft",
             "level": "1.2",
             "depth": 1,
-            "path": "_posts/2019-04-27-why.md",
-            "ref": "_posts/2019-04-27-why.md",
+            "path": "_pages/design/draft.md",
+            "ref": "_pages/design/draft.md",
             "articles": []
         },
         
@@ -405,8 +317,8 @@ minimal configuration in <code class="language-plaintext highlighter-rouge">_con
         "gitbook": "*"
     },
     "file": {
-        "path": "index.md",
-        "mtime": "",
+        "path": "_pages/contact.md",
+        "mtime": "2022-02-05 00:00:00 +0800",
         "type": "markdown"
     },
     "gitbook": {
