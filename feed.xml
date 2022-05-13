@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-13T11:14:48+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2022/05/13/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2022-05-13T11:03:16+08:00</published><updated>2022-05-13T11:03:16+08:00</updated><id>http://localhost:4000/jekyll/update/2022/05/13/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2022/05/13/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+
+<p>Jekyll requires blog post files to be named according to the following format:</p>
+
+<p><code class="language-plaintext highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></p>
+
+<p>Where <code class="language-plaintext highlighter-rouge">YEAR</code> is a four-digit number, <code class="language-plaintext highlighter-rouge">MONTH</code> and <code class="language-plaintext highlighter-rouge">DAY</code> are both two-digit numbers, and <code class="language-plaintext highlighter-rouge">MARKUP</code> is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+
+<p>Jekyll also offers powerful support for code snippets:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
+<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+
+<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry><entry><title type="html">Ubuntu18.04环境简易搭建</title><link href="http://localhost:4000/2022/05/13/Ubuntu18.04%E7%8E%AF%E5%A2%83%E7%AE%80%E6%98%93%E6%90%AD%E5%BB%BA.html" rel="alternate" type="text/html" title="Ubuntu18.04环境简易搭建" /><published>2022-05-13T00:00:00+08:00</published><updated>2022-05-13T00:00:00+08:00</updated><id>http://localhost:4000/2022/05/13/Ubuntu18.04%E7%8E%AF%E5%A2%83%E7%AE%80%E6%98%93%E6%90%AD%E5%BB%BA</id><content type="html" xml:base="http://localhost:4000/2022/05/13/Ubuntu18.04%E7%8E%AF%E5%A2%83%E7%AE%80%E6%98%93%E6%90%AD%E5%BB%BA.html"><![CDATA[<h1 id="ubuntu1804环境简易搭建">Ubuntu18.04环境简易搭建</h1>
+
+<p><strong>目录</strong></p>
+
+<p><a href="#一、准备工作">一、准备工作</a></p>
+
+<p><a href="#1.下载Ubuntu映像">1.下载Ubuntu映像</a></p>
+
+<p><a href="#2.下载VMware">2.下载VMware</a></p>
+
+<p><a href="#3.下载Xshell和Xftp">3.下载Xshell和Xftp</a></p>
+
+<p><a href="#二、配置VMware">二、配置VMware</a></p>
+
+<p><a href="# 三、开始安装Ubuntu系统">三、开始安装Ubuntu系统</a></p>
+
+<p><a href="#四、配置Ubuntu内部环境">四、配置Ubuntu内部环境</a></p>
+
+<p><a href="#1.解决apt-get问题">1.解决apt-get问题</a></p>
+
+<p><a href="#2.VMtools">2.VMtools</a></p>
+
+<p><a href="#3.配置ssh和远程连接">3.配置ssh和远程连接</a></p>
+
+<p><a href="#4.安装vim">4.安装vim</a></p>
+
+<p><a href="#五、后记">五、后记</a></p>
+
+<hr />
+
+<h1 id="一准备工作">一、准备工作</h1>
+
+<h2 id="1下载ubuntu映像">1.下载Ubuntu映像</h2>
+
+<p>在官网下载Ubuntu桌面版iso文件。</p>
+
+<p>https://releases.ubuntu.com/18.04/</p>
+
+<p>向下翻，找到这个文件，点击后开始下载，接着耐心等待一段时间（此过程一般半个小时左右）</p>
+
+<p><img src="https://img-blog.csdnimg.cn/c916b76c78414afe866f8321c0d13414.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<h2 id="2下载vmware">2.下载VMware</h2>
+
+<p>在等待Ubuntu镜像的时候，我们可以趁机下载点儿别的。</p>
+
+<p>链接：https://pan.baidu.com/s/1nzxDoFIaOYI9XFwF50U5ew</p>
+
+<p>提取码：70f9</p>
+
+<p>按正常流程安装即可，只是尽量不要装在系统盘。</p>
+
+<p>许可证密钥参考这个链接：http://www.errornoerror.com/question/1585959666661114/</p>
+
+<h2 id="3下载xshell和xftp">3.下载Xshell和Xftp</h2>
+
+<p>下载地址：<a href="https://www.xshellcn.com/xiazai.html">Xshell7_Xftp7,Xmanager7下载-xshellcn</a></p>
+
+<p>要填<strong>可用的手机号和邮箱</strong>，其它的无所谓。填写后，获取验证码就能正常下载了。</p>
+
+<p>Xshell 7和Xftp 7都要下。</p>
+
+<p>安装流程与一般软件无异。</p>
+
+<p><img src="https://img-blog.csdnimg.cn/3aaaa24f09cb4497bbd1495fc6291d81.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p>安装完成后 ，Ubuntu这会儿应该也下载下来了，我们接下来开始配置虚拟机。</p>
+
+<h1 id="二配置vmware">二、配置VMware</h1>
+
+<p><img src="https://img-blog.csdnimg.cn/16ae7b7d0dcc4351b311e4a1478c9546.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/51bc9c6189e0490893a7854705a36181.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/22bb2f8f26f2496e8819875c64a89966.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/3ff3519b4cc542efb8d018045ffc4aa9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/45368952cf1644f5acc83799d3689b55.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/548d209dcd9b499a857064096c64abf4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/0151ac3a6b1e4035bca619486b9407f8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/885203ee2a7a4b2ba4f208ca09048b2f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /> <img src="https://img-blog.csdnimg.cn/3337fb7cfa18440895d7c0e73a852df4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/84987ad8a99e49b681a94c52d445237d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/7976b283951c4a0c9990d89e55b12905.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /> <img src="https://img-blog.csdnimg.cn/230acd0011274602836a249f0d0ba96b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/164199affe1b430fb1057a6cf45e6947.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /> <img src="https://img-blog.csdnimg.cn/e009bcc04200476fbdba1b44561f426a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/a7da698007ec44f98a9e6cd0ab754bc0.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/2fb99f4d5e6f48129d59442625dd95e4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/f7e0c8554ff94f5b8e1bf551c05fa8c9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_19,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_19,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/e5ebb9d7932b4c96a0898da9eb69465f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /> <img src="https://img-blog.csdnimg.cn/bff1956b8d6c42fdbec3837797345cde.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/24ad0a33a6234870ab87aff8e3ace86f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/3dc4ab3d0b974a419ab2aecd9cb8f910.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<h1 id="三开始安装ubuntu系统">三、开始安装Ubuntu系统</h1>
+
+<p>虚拟机开机后，鼠标往往会被虚拟机窗口捕获，这时可以按ctrl+alt脱离虚拟机窗口。</p>
+
+<p>在安装了VMtools之后，此问题会得到完美解决。</p>
+
+<p><img src="https://img-blog.csdnimg.cn/d0c2ea6ced9a42ceadcba2a50afeff50.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/d3bfbe4ea9d04d22bd2141a975e641e0.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/af3f5005540040deae9079ef782259ff.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/62b4ce2ab4d84a0fb44eac5f0c5885a3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/2fdfb41ab209421c9403f28a07ba44fd.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /> <img src="https://img-blog.csdnimg.cn/ee6d1862ea5a4e5ea9d9bf75a77ad1b2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/a3575f7148854a3bacc433f29b513189.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" />现在我们要做的唯一事情，就是去喝杯咖啡等着，大约半小时后会安装完成。</p>
+
+<p>好了，安装完成，我们回来了！<img src="https://img-blog.csdnimg.cn/b8d8b99ed5134f9ca3f3c4bc397c95ea.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p>重启后，显示这个界面。</p>
+
+<p>虚拟机窗口太小了，怎么办？点击图上的按键即可自适应缩放。点击小三角可以决定是自由缩放还是保持纵横比缩放。</p>
+
+<p><img src="https://img-blog.csdnimg.cn/3f41f66ee9fd414582a7882271fecc20.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p>鼠标按住画面向上拖动，显示登录界面。</p>
+
+<p><img src="https://img-blog.csdnimg.cn/4cd4260119ab47b686875657e2578935.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/7880a39a65f3446ebd4036d571ba373f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p>输入账号密码后，等待片刻即可进入系统，不久后就会显示一个弹窗。</p>
+
+<p><img src="https://img-blog.csdnimg.cn/0c3e101256ed4d7287c10939ce05eb7c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p>途中如果弹出更新提示，切记，不要更新！</p>
+
+<p><img src="https://img-blog.csdnimg.cn/7c67aa3e3f3d4dda86c4dd6d143d410f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/049cb58b79484a128832eb9e035228e4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p>后面基本上就是一路next就行了。注意，不要下载更新。<img src="https://img-blog.csdnimg.cn/d2ecb5c4a12440cf9abbcb3ef038cb12.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p>接下来的几步next就不截了，因为，用户向导界面突然卡住了，关也关不掉……</p>
+
+<h1 id="四配置ubuntu内部环境">四、配置Ubuntu内部环境</h1>
+
+<p>经过片刻等待，用户向导界面终于被关掉了。现在的任务有这么几个：</p>
+
+<ol>
+  <li>解决apt-get问题</li>
+  <li>安VMtools</li>
+  <li>配置ssh</li>
+  <li>安装文本编辑器vim</li>
+</ol>
+
+<p>接下来一步步完成。</p>
+
+<h2 id="1解决apt-get问题">1.解决apt-get问题</h2>
+
+<p>众所周知，Ubuntu的镜像源在国内访问极其慢，需要修改镜像源。</p>
+
+<p>为什么放第一个呢？因为不管是ssh、vim还是VMtools，全部都要apt下载。不改镜像源的话，慢得不可理喻的网速就会接下来所有的步骤寸步难行。</p>
+
+<p>前提：虚拟机已经连上网。没联网的，如下操作：</p>
+
+<p><img src="https://img-blog.csdnimg.cn/c6f2d5ebe2384ba2a2823029b1095685.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p>右键桌面，打开终端。</p>
+
+<p><img src="https://img-blog.csdnimg.cn/1815221e852f4b5faa037d5dac6e1d73.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p>一定一定要修改镜像源！<strong>不要直接apt update！</strong></p>
+
+<p>本人刚刚已经踩过一次坑，这个东西太慢了，太慢了，太慢了……（下载个vim都要两个小时的这种）</p>
+
+<p>如果能改镜像源的话，早就改了。可是在没有远程控制和VMtools的阶段，唯一的办法恐怕就是手打将近五六十行的镜像地址（这是不可接受的）</p>
+
+<p>我尝试过很多奇妙的办法，但是事实证明，原机和虚拟机剪贴板不能互通，一切粘贴策略均无效。vi（因为没有vim），gedit均不能粘贴来自windows剪贴板的内容，已经查过很多资料，没有找到解决办法。</p>
+
+<p>以下方法来自大神的博客（原链接发不出来），这适用于没有VMtools，没有Xshell，甚至没有图形化界面的一穷二白的情况：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install git
+
+git clone https://gitee.com/isfive/linux-apt-get-aliyun.git
+
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+
+sudo rm /etc/apt/sources.list
+
+cd linux-apt-get-aliyun
+
+ls
+
+#以下命令根据自己的Ubuntu版本号而定，这里是18.04
+cd ./18.04
+
+sudo cp ./sources.list /etc/apt/sources.list
+
+sudo apt-get update
+</code></pre></div></div>
+
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p>下载git时也许需要1到2分钟。</p>
+
+<h2 id="2vmtools">2.VMtools</h2>
+
+<p>VMtools成功安装的前提也是apt配置成功，所以利用VMtools复制粘贴的想法不能在前面实现。</p>
+
+<p>一定要配好apt再装这个！不然，两天都装不完……</p>
+
+<p>简要来说，就三行命令：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get autoremove open-vm-tools
+sudo apt-get install open-vm-tools
+sudo apt-get install open-vm-tools-desktop
+</code></pre></div></div>
+
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p>执行完了，记得<strong>重启</strong>。重启之后，在Windows复制的东西，到了虚拟机里面，右键，点击paste也好使了。</p>
+
+<h2 id="3配置ssh和远程连接">3.配置ssh和远程连接</h2>
+
+<blockquote>
+  <p>写在前面：</p>
+
+  <p>每次使用Xshell连接虚拟机时，<strong>最好都使用ifconfig看一下ip地址</strong>。之前测试的时候发现，Ubuntu虚拟机的ip地址似乎在每次开机后会改变，之前保存的Xshell连接就不能用了。</p>
+</blockquote>
+
+<p>我们现在还没有安装openssh-server。用apt安装后，启动服务， 并且用ps -e检查一下是否成功开启sshd。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install openssh-server
+/etc/init.d/ssh start
+ps -e | grep sshd
+</code></pre></div></div>
+
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p>当看到如下结果时，说明配置成功。</p>
+
+<p><img src="https://img-blog.csdnimg.cn/abf28c0a6420400d85068a3b745666cb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p>输入以下命令获取虚拟机ip地址：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ifconfig
+</code></pre></div></div>
+
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p>如果出现以下情况：</p>
+
+<p><img src="https://img-blog.csdnimg.cn/10eeb65101fc424d884d4a830f8867f4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p>则先执行以下命令，再返回去执行ifconfig。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install net-tools
+</code></pre></div></div>
+
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p>执行ifconfig之后，记录一下虚拟机的ip地址，然后打开我们之前下载的Xshell。</p>
+
+<p><img src="https://img-blog.csdnimg.cn/483c34601a4840819bdbf860da989c44.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p>点击会话窗口里的“新建”</p>
+
+<p><img src="https://img-blog.csdnimg.cn/a4d3b15d5929488587f95fcb00e336a3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/a3c4045d2952416ba73b316cce023e53.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/2d65a2b9bacc400cb4ba90e7e479bcd3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/4ece98f8533746a186360d04ee97ac8e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/74ae7121cd4c402ab6b73f8eb7ad9ecf.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p>出现以下画面，就说明连接成功了！此时这个黑窗口就相当于Ubuntu的终端，我们可以在里面执行命令。</p>
+
+<p><img src="https://img-blog.csdnimg.cn/e0969e2eed6d4e61bf5cd9cc15264773.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p>点这个，即可打开Xftp并自动建立文件传输。如果没有这个按键，那么自行打开Xftp软件，按连接Xshell的相同办法操作即可。</p>
+
+<p><img src="https://img-blog.csdnimg.cn/7c5dfb9762e94233a8d70ca6bac4bcde.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<p>出现这个画面就是Xftp连接成功，可以两边相互拖拽文件啦！<img src="https://img-blog.csdnimg.cn/78b90646a98c4ab2bf96e76808f3e326.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" alt="watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb2N0ZW5l6L6b,size_20,color_FFFFFF,t_70,g_se,x_16" /><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<h2 id="4安装vim">4.安装vim</h2>
+
+<p>安装了Xshell、建立远程连接之后，我们的很多指令其实是在Xshell上完成的。现在让我们安装一下vim。</p>
+
+<p>在Xshell的窗口输入：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install vim
+</code></pre></div></div>
+
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动" /></p>
+
+<h1 id="五后记">五、后记</h1>
+
+<p>安装虚拟机这件事，关键还是要自己来一遍，才知道问题其实很多。</p>
+
+<p>尤其是apt配置那一步，在没改镜像源之前，耐心等待了八个小时，apt update这一行指令才断断续续地跑完了。</p>
+
+<p>很多事情都不是蛮力可以解决的，一定要多查资料，多想，多动手，经验就在无形之中积累起来了。</p>
+
+<p>希望这篇文章可以帮助到更多的小伙伴们！</p>]]></content><author><name></name></author><summary type="html"><![CDATA[Ubuntu18.04环境简易搭建]]></summary></entry></feed>
