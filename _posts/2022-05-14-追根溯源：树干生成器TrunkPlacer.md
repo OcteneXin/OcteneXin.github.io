@@ -7,19 +7,19 @@ layout: post
 
 
 
-![image-20220513235025394](C:\Users\HP\AppData\Roaming\Typora\typora-user-images\image-20220513235025394.png)
+![image-20220513235025394](https://img-blog.csdnimg.cn/fb3322bf3b7e49a09a34212a72569337.png)
 
 > 测试时偶遇的一棵优美的大型橡树。
 
 <br />
 
-> “我知道大多数玩家都对树干感兴趣，但是那些留在空中的树叶真的太丑了。”
+> *“我知道大多数玩家都对树干感兴趣，但是那些留在空中的树叶真的太丑了。”*
 >
-> “我刚刚特地通知了基岩版那边的人，让他们为此加一条标语警告玩家。你给个建议？”
+> *“我刚刚特地通知了基岩版那边的人，让他们为此加一条标语警告玩家。你给个建议？”*
 >
-> “不要让树漂浮”
+> *“不要让树漂浮”*
 >
-> ——也许是Mojang某两位程序员的对话
+> *——也许是Mojang某两位程序员的对话*
 
 <br />
 
@@ -94,11 +94,11 @@ public abstract class AbstractTrunkPlacer {
 
 数据结构里的一棵树可能是这样的：
 
-![image-20220514092836072](C:\Users\HP\Desktop\OcteneXin.github.io\_posts\2022-05-14-从根出发：树干生成器TrunkPlacer详解.assets\image-20220514092836072.png)
+![image-20220514092836072](https://img-blog.csdnimg.cn/221d01f8ee9a450a92cf220b8f4dbedb.png)
 
 但是mc中的一棵丛林树是这样的：（左一）
 
-![img](https://static.wikia.nocookie.net/minecraft_zh_gamepedia/images/d/d9/Jungle_Trees.png/revision/latest/scale-to-width-down/702?cb=20170303222523)
+![img](https://img-blog.csdnimg.cn/img_convert/1bef290f0ef7a4619877a3bbe522d91b.png)
 
 你一定会说这两个东西简直毫无联系，但你看了源码后一定就不会这样想了，反而会相当佩服Mojang程序猿的设计和他们的脑洞。
 
@@ -184,17 +184,17 @@ public List<FoliagePlacer.Foliage> placeTrunk(IWorldGenerationReader p_230382_1_
 
 实际生成大型丛林树树干时，先执行GiantTrunkPlacer的placeTrunk，再执行自己的placeTrunk。我画两个流程图讲解一下：
 
-![image-20220514113438278](C:\Users\HP\Desktop\OcteneXin.github.io\_posts\2022-05-14-从根出发：树干生成器TrunkPlacer详解.assets\image-20220514113438278.png)
+![image-20220514113438278](https://img-blog.csdnimg.cn/5de6ae937b7c4311ae3c5e65129b7b6e.png)
 
-![image-20220514113840402](C:\Users\HP\Desktop\OcteneXin.github.io\_posts\2022-05-14-从根出发：树干生成器TrunkPlacer详解.assets\image-20220514113840402.png)
+![image-20220514113840402](https://img-blog.csdnimg.cn/e023a6089ac444abba6f552701b4e378.png)
 
 现在再回头看看我们再熟悉不过的丛林树，应该可以很清晰地分析出它的树干结构了。
 
-![image-20220514113741419](C:\Users\HP\Desktop\OcteneXin.github.io\_posts\2022-05-14-从根出发：树干生成器TrunkPlacer详解.assets\image-20220514113741419.png)
+![image-20220514113741419](https://img-blog.csdnimg.cn/702874b93fe1442da567687959ea0b3b.png)
 
 #### 补：侧枝生成算法
 
-<img src="https://tse1-mm.cn.bing.net/th/id/R-C.330cd5022df2adc958d10258b3b6ac36?rik=h3rQvdQsDTM3wg&riu=http%3a%2f%2fwww.robot-testing.com%2fPublic%2fUploads%2fimage%2f20180809%2f5b6ba545710c2.jpg&ehk=YZ81RL4heFsp7qE7Rf4hoqJXaNft%2fue3ZV3KZkMcb%2fA%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="查看源图像" style="zoom:50%;" />
+<img src="https://img-blog.csdnimg.cn/38bd398d7a494af7afcb2432ca52aec3.png" alt="查看源图像" style="zoom:50%;" />
 
 ```java
 float f = p_230382_2_.nextFloat() * ((float)Math.PI * 2F);//确定球坐标偏角Ф
@@ -214,17 +214,17 @@ for(int l = 0; l < 5; ++l) {
 
 假设有一棵运气很好的树，它的起始生成位置的xz正好是（0，0）。还记得起始生成位置是什么吗？【泥土上的靠西北角的第一块原木，即x、z都最小】
 
+![image-20220514120241722](https://img-blog.csdnimg.cn/8b7fd2c0a0f147dcb507a815d5912411.png)
+
 再假设现在这棵树的2*2主干已经生成完毕。
 
 图中的偏转角Ф就是f，容易看出f∈[0,2π）。
 
-这个侧枝一共要生成5个原木，可以近似地认为r=5。我们先来看一个俯视图。
+这个侧枝一共要生成5个原木，可以近似地认为r=5。
 
 ##### f为π/2整数倍
 
 假设f正好是π/2。
-
-![image-20220514120241722](C:\Users\HP\Desktop\OcteneXin.github.io\_posts\2022-05-14-从根出发：树干生成器TrunkPlacer详解.assets\image-20220514120241722.png)
 
 ```java
 //已知条件：侧枝基部坐标=(0,0)，f=π/2，以下均为伪代码
@@ -255,11 +255,11 @@ k=5;
 blockpos=(1,5);
 ```
 
-![image-20220514122533930](C:\Users\HP\Desktop\OcteneXin.github.io\_posts\2022-05-14-从根出发：树干生成器TrunkPlacer详解.assets\image-20220514122533930.png)
+![image-20220514122533930](https://img-blog.csdnimg.cn/ec6e32c370d94cb6b53bace843c14199.png)
 
 对于其他的f也能画出类似的图。我画了0，π/2，π，3π/2的示意图。
 
-![image-20220514123138718](C:\Users\HP\Desktop\OcteneXin.github.io\_posts\2022-05-14-从根出发：树干生成器TrunkPlacer详解.assets\image-20220514123138718.png)
+![image-20220514123138718](https://img-blog.csdnimg.cn/d74481c4be0e4209b8c3ec24363368ee.png)
 
 容易看出，所有的侧枝都会从（1，1）开始生成。有兴趣的玩家可以注意一下你碰到的丛林树，它的东南方向的侧枝都会较长一些。~~这反映了植物的向光性~~
 
@@ -294,21 +294,21 @@ k=(int)(1.5F+sin(π/3)*4)=(int)(3.5F)=4;
 blockpos=(3,4);
 ```
 
-![image-20220514125544341](C:\Users\HP\Desktop\OcteneXin.github.io\_posts\2022-05-14-从根出发：树干生成器TrunkPlacer详解.assets\image-20220514125544341.png)
+![image-20220514125544341](https://img-blog.csdnimg.cn/1077096565b14e439e51a666ba5c15ad.png)
 
 一个更抽象的描述：
 
-![image-20220514125553037](C:\Users\HP\Desktop\OcteneXin.github.io\_posts\2022-05-14-从根出发：树干生成器TrunkPlacer详解.assets\image-20220514125553037.png)
+![image-20220514125553037](https://img-blog.csdnimg.cn/6200e7a657f444609616bf5e9d3582b6.png)
 
 ##### 侧枝的抬升
 
 我们平时看到的丛林树侧枝都是这样的：
 
-![image-20220514130019383](C:\Users\HP\Desktop\OcteneXin.github.io\_posts\2022-05-14-从根出发：树干生成器TrunkPlacer详解.assets\image-20220514130019383.png)
+![image-20220514130019383](https://img-blog.csdnimg.cn/a4fd89499ce440e69f1b219a37c3524c.png)
 
 它在y轴上有一个向上抬升的角度。
 
-<img src="https://tse1-mm.cn.bing.net/th/id/R-C.330cd5022df2adc958d10258b3b6ac36?rik=h3rQvdQsDTM3wg&riu=http%3a%2f%2fwww.robot-testing.com%2fPublic%2fUploads%2fimage%2f20180809%2f5b6ba545710c2.jpg&ehk=YZ81RL4heFsp7qE7Rf4hoqJXaNft%2fue3ZV3KZkMcb%2fA%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="查看源图像" style="zoom:50%;" />
+<img src="https://img-blog.csdnimg.cn/38bd398d7a494af7afcb2432ca52aec3.png" alt="查看源图像" style="zoom:50%;" />
 
 我再次把这张图拿过来，大家应该能够看出，”侧枝向上抬升的角度“就是图中θ的**余角**。
 
