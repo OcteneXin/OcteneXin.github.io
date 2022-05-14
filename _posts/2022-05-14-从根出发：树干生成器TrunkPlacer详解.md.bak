@@ -1,0 +1,105 @@
+------
+
+
+
+![image-20220513235025394](C:\Users\HP\AppData\Roaming\Typora\typora-user-images\image-20220513235025394.png)
+
+> 测试时偶遇的一棵优美的大型橡树。
+
+<br />
+
+> “大多数玩家都对树干感兴趣。看哪，那边一团团漂浮在空中的橡树树叶与这个世界是多么不协调。”
+>
+> “所以你设计了树叶自然枯萎，是吗？”
+>
+> “没错，我还特地通知了基岩版那边的人，让他们为此加一条标语警告玩家。”
+>
+> “不要让树漂浮”
+>
+> ——也许是Mojang某两位程序员的对话
+
+<br />
+
+主持人：首先让我们讨论一下，你在生存中都砍过哪些树？
+
+P1：“白桦树，只有一根笔挺的树干，树冠永远都是离地2到3格，很好。”
+
+P2：”普通的橡树，也只有一根主干，但有时树冠会长得很低，这样我就不得不消耗珍贵的斧头耐久去对付一块树叶了。”
+
+P3：“金合欢树，它长得算是奇怪的了，砍树的时候毫无规律可循。”
+
+P4：“深色橡树，2*2的主干，不高也不矮，原木基本上集中在树冠下方。”
+
+P5：“丛林树，爬到树顶上再向下砍就行了，只是侧枝有时需要处理一下。”
+
+P6：“巨型云杉树，它看来是最好的原木来源了，因为它只有一个2*2的主干，还没有侧枝。”
+
+主持人：那你们认为大型橡树怎么样？
+
+所有人：（默默地掏出打火石）
+
+<br />
+
+从上面这段对话可以看出，大型橡树的树干生长方式确实是个令人头痛的问题，毕竟谁也不想在一堆树叶里找那一两块原木。但我遇到的有些大型橡树生成还是相当规整的，看上面的图就知道了。~~（事实上，看到大型橡树，我也会掏出打火石来对付它）~~
+
+话题拉回来，今天我们讨论的是树干的生成，以上的对话已经透露出好几种树干生成的方法了，接下来一一分析。
+
+<br />
+
+### TrunkPlacer的继承树
+
+```
+AbstractTrunkPlacer
+	|__ForkyTrunkPlacer		//金合欢树
+	|__FancyTrunkPlacer		//大型橡树
+	|__GiantTrunkPlacer		//巨型云杉树
+	|	|__MegeJungleTrunkPlacer	//大型丛林树
+	|
+	|__DarkOakTrunkPlacer	//深色橡树
+	|__StraightTrunkPlacer	//未提到的所有树，包括普通橡树，白桦树，小型丛林树，普通云杉树
+```
+
+我们已了解每一种TrunkPlacer会被用在哪种树木的生成上了，但它到底是怎么起作用的？
+
+
+
+### 从抽象到具体——AbstractTrunkPlacer简析
+
+这段代码比较长，可能不适于阅读，这里只挑出构造器、成员变量和其他成员方法的方法声明来介绍，方法体就隐去了。
+
+```java
+public abstract class AbstractTrunkPlacer {
+   public static final Codec<AbstractTrunkPlacer> CODEC = Registry.TRUNK_PLACER_TYPES.dispatch(AbstractTrunkPlacer::type, TrunkPlacerType::codec);
+   public final int baseHeight;		//最低高度
+   public final int heightRandA;	//高度随机数A
+   public final int heightRandB;	//高度随机数B
+
+   protected static <P extends AbstractTrunkPlacer> P3<Mu<P>, Integer, Integer, Integer> trunkPlacerParts(Instance<P> p_236915_0_);	//作用不明
+
+   public AbstractTrunkPlacer(int p_i232060_1_, int p_i232060_2_, int p_i232060_3_) {
+      this.baseHeight = p_i232060_1_;
+      this.heightRandA = p_i232060_2_;
+      this.heightRandB = p_i232060_3_;
+   }//构造器
+
+   protected abstract TrunkPlacerType<?> type();//返回TrunkPlacerType，这与TrunkPlacer的注册有关，以后细说
+
+   public abstract List<FoliagePlacer.Foliage> placeTrunk(IWorldGenerationReader p_230382_1_, Random p_230382_2_, int p_230382_3_, BlockPos p_230382_4_, Set<BlockPos> p_230382_5_, MutableBoundingBox p_230382_6_, BaseTreeFeatureConfig p_230382_7_);//最重要的也是唯一的抽象方法，实现类会在里面写树干生成算法
+
+   public int getTreeHeight(Random p_236917_1_);//根据最低高度和两个随机数，算出一个最终树干高度
+
+   protected static void setBlock(IWorldWriter p_236913_0_, BlockPos p_236913_1_, BlockState p_236913_2_, MutableBoundingBox p_236913_3_);//特殊的setBlock方法，只有放置横向原木的大型橡树算法调用过它，我们可以忽略
+
+   private static boolean isDirt(IWorldGenerationBaseReader p_236912_0_, BlockPos p_236912_1_);//判断本方块是不是Dirt类的方块
+
+   protected static void setDirtAt(IWorldGenerationReader p_236909_0_, BlockPos p_236909_1_);//将所选位置变为泥土方块（注意，是泥土）
+
+   public static boolean placeLog(IWorldGenerationReader p_236911_0_, Random p_236911_1_, BlockPos p_236911_2_, Set<BlockPos> p_236911_3_, MutableBoundingBox p_236911_4_, BaseTreeFeatureConfig p_236911_5_);//放置单块原木并将其坐标加入一个“原木坐标集合”中
+
+   protected static void placeLogIfFree(IWorldGenerationReader p_236910_0_, Random p_236910_1_, BlockPos.Mutable p_236910_2_, Set<BlockPos> p_236910_3_, MutableBoundingBox p_236910_4_, BaseTreeFeatureConfig p_236910_5_);//只是添加了一层检查的placeLog方法，只有大型丛林树和巨型云杉树在用
+
+}
+```
+
+希望大家对placeTrunk留下深刻的印象，这是一切TrunkPlacer实现类工作的基础。当然，type()方法也需要留意，最后我们会专门处理这个问题。
+
