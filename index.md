@@ -2,9 +2,15 @@
 layout: home
 ---
 
+> *你打开了一本学习笔记。
+>
+> *error, bug, feature, work as intended
+>
+> *与代码作斗争总不是那么容易的。
 
 
-###<a href='https://github.com/OcteneXin/IniField'>源代码仓库（记得Star哦）</a>
+
+<a href='https://github.com/OcteneXin/IniField'>源代码仓库（记得Star哦）</a>
 
 
 
