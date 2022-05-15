@@ -2,112 +2,48 @@
 layout: home
 ---
 
-Make Jelly site have a GitBook look!
 
-## Demo
 
-Live demo on Github Pages: [https://sighingnow.github.io/jekyll-gitbook](https://sighingnow.github.io/jekyll-gitbook)
+###<a href='https://github.com/OcteneXin/IniField'>源代码仓库（记得Star哦）</a>
 
-[![Jekyll Themes](https://img.shields.io/badge/featured%20on-JekyllThemes-red.svg)](https://jekyll-themes.com/jekyll-gitbook/)
 
-## Why Jekyll with GitBook
 
-GitBook is an amazing frontend style to present and organize contents (such as book chapters
-and blogs) on Web. The typical to deploy GitBook at [Github Pages][1]
-is building HTML files locally and then push to Github repository, usually to the `gh-pages`
-branch. It's quite annoying to repeat such workload and make it hard for people do version
-control via git for when there are generated HTML files to be staged in and out.
+### 个人简介
 
-This theme takes style definition out of generated GitBook site and provided the template
-for Jekyll to rendering markdown documents to HTML, thus the whole site can be deployed
-to [Github Pages][1] without generating and uploading HTML bundle every time when there are
-changes to the original repo.
+> 菜菜，捞捞，呜呜……
 
-## How to Get Started
+本人大一学生，业余时喜欢折腾mc模组开发。
 
-This theme can be used just as other [Jekyll themes][1].
+上半年做了一个1.12练习性质的模组，已弃坑。
 
-[Fork][3] this repository and add your markdown posts to the `_posts` folder.
+目前正在开发1.16.5的模组，但是由于学业紧张可能更新缓慢~~（谁过来催催这不想更新的作者啊！）~~
 
-### Deploy Locally with Jekyll Serve
 
-This theme can be ran locally using Ruby and Gemfiles.
 
-[Testing your GitHub Pages site locally with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll) - GitHub
+### 模组介绍
 
-## Full-text search
+> 从前世界只是一片虚无……
 
-The search functionality in jekyll-gitbook theme is powered by the [gitbook-plugin-search-pro][5] plugin and is enabled by default.
+- 模组名：Inifield
+- 开发环境
+  - Java1.8.0_171
+  - Intellij Idea 2021.1.3
+  - Forge forge:1.16.5-36.2.33
+- 设计元素：剧情，战斗，自然，模型，维度，编程
 
-[https://sighingnow.github.io/jekyll-gitbook/?q=generated](https://sighingnow.github.io/jekyll-gitbook/?q=generated)
+现在还没有决定封面图是什么。
 
-## Code highlight
 
-The code highlight style is configurable the following entry in `_config.yaml`:
 
-```yaml
-syntax_highlighter_style: colorful
-```
+### 更新日志
 
-The default code highlight style is `colorful`, the full supported styles can be found from [the rouge repository][6]. Customized
-style can be added to [./gitbook/rouge/](./gitbook/rouge/).
+> 改变世界的更新！
 
-## How to generate TOC
+| 日期      | 更新                                   | 发现的bug                | 解决的bug |
+| --------- | -------------------------------------- | ------------------------ | --------- |
+| 2022-4-20 | 首次commit                             | /                        | /         |
+| 2022-5-3  | 加入了芦苇、雪滴花和世界树             | 自定义区块生成器不起作用 | /         |
+| 2022-5-7  | 加入了天域传送门和对话屏幕             | 可投掷TNT不渲染实体      | /         |
+| 2022-5-8  | 优化过的基于决策树的对话；新的生物模型 | /                        | /         |
 
-The jekyll-gitbook theme leverages [jekyll-toc][4] to generate the *Contents* for the page.
-The TOC feature is not enabled by default. To use the TOC feature, modify the TOC
-configuration in `_config.yml`:
-
-```yaml
-toc:
-    enabled: true
-    h_min: 1
-    h_max: 3
-```
-
-## Google Analytics, etc.
-
-The jekyll-gitboook theme supports embedding the [Google Analytics][7], [CNZZ][8] and [Application Insights][9] website analytical tools with the following
-minimal configuration in `_config.yaml`:
-
-```yaml
-tracker:
-  google_analytics: "<YOUR GOOGLE ANALYTICS KEY, e.g, UA-xxxxxx-x>"
-```
-
-Similarly, CNZZ can be added with the following configuration in `_config.yaml`
-
-```yaml
-tracker:
-  cnzz: "<YOUR CNZZ ANALYTICS KEY, e.g., xxxxxxxx>"
-```
-
-Application Insights can be added with the following configuration in `_config.yaml`
-
-```yaml
-tracker:
-  application_insights: "<YOUR APPLICATION INSIGHTS CONNECTION STRING>"
-```
-
-## Extra StyleSheet or Javascript elements
-
-You can add extra CSS or JavaScript references using configuration collections:
-
-- extra_css: for additional style sheets. If the url does not start by http, the path must be relative to the root of the site, without a starting `/`.
-- extra_header_js: for additional scripts to be included in the `<head>` tag, after the `extra_css` has been added. If the url does not start by http, the path must be relative to the root of the site, without a starting `/`.
-- extra_footer_js: for additional scripts to be included at the end of the HTML document, just before the site tracking script. If the url does not start by http, the path must be relative to the root of the site, without a starting `/`.
-
-## License
-
-This work is open sourced under the Apache License, Version 2.0.
-
-Copyright 2019 Tao He.
-
-[1]: https://pages.github.com
-[2]: https://pages.github.com/themes
-[3]: https://github.com/sighingnow/jekyll-gitbook/fork
-[4]: https://github.com/allejo/jekyll-toc
-[5]: https://github.com/gitbook-plugins/gitbook-plugin-search-pro
-[6]: https://github.com/rouge-ruby/rouge/tree/master/lib/rouge/themes
-[7]: https://analytics.google.com/analytics/web/
-[8]: https://www.cnzz.com/
+注：表格中的内容以GitHub提交记录为准，保持同步
