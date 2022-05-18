@@ -1,3 +1,7 @@
+---
+layout: post
+---
+
 ------
 
 ![image-20220518153135109](https://img-blog.csdnimg.cn/956e05b4b7444449b5e48f8306edbe77.png)
