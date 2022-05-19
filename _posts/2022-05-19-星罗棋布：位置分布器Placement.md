@@ -108,27 +108,27 @@ public static final ConfiguredFeature<?, ?> TREES_BIRCH
 
 ### 主要Placement和ConfiguredPlacement
 
-为什么还要介绍初次汇总类Placement呢？因为大多数ConfiguredPlacement都是由Placement的初次汇总产物匿名产生的，也由必要提一些。
+为什么还要介绍初次汇总类Placement呢？因为大多数ConfiguredPlacement都是由Placement的初次汇总产物匿名产生的，也有必要提一些。
 
 以下的常量都是Features里出现频率相当高的。作者认真研究了下表每个Placement和ConfiguredPlacement的算法，对于这些分布给出了一个合理的解释。
 
-| **分布**                   | **类型**                               | **特征**                                                     | **实例**                                                     |
-| -------------------------- | -------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| *CHANCE*                   | Placement<ChanceConfig>                | 每区块有1/x的几率生成此特性                                  | 已被包装成chance()方法                                       |
-| COUNT                      | Placement<FeatureSpreadConfig>         | 每区块尝试生成x次此特性                                      | 已被包装成count()方法                                        |
-| COUNT_NOISE                | Placement<NoiseDependant>              | 根据生物群系柏林噪声决定生成密度                             | 部分草采用此分布                                             |
-| COUNT_NOISE_BIASED         | Placement<TopSolidWithNoiseConfig>     | 与上一个相似，但采用了配置使得噪声更可控，是数种二次汇总产物的基础 | 用于海带、竹子、珊瑚礁                                       |
-| COUNT_EXTRA                | Placement<AtSurfaceWithExtraConfig>    | 与COUNT相似，但有1/x的额外生成率，见名知义，它多用于地表特性生成 | 只要是树林都采用此分布                                       |
-| ADD_32                     | ConfiguredPlacement<?>                 | 在区块内根据x，z获取高度y后，选择[y，y+32）的某方块          | 花卉、高草丛采用此分布                                       |
-| RANGE                      | Placement<TopSolidRangeConfig>         | 根据给定的x，z，选择y在某区间的某方块                        | 已被包装成range()方法，广泛用于下界特性、主世界矿石（除绿宝石外）的生成 |
-| SQUARE                     | Placement<NoPlacementConfig>           | 在当前区块给定高度的16*16范围内，随机选一个方块              | 已被包装成square()方法                                       |
-| HEIGHTMAP                  | ConfiguredPlacement<NoPlacementConfig> | 根据指定的x、z，按MOTION_BLOCKING规则在区块高度图选择最顶上的一个方块 | 被应用于HEIGHTMAP_SQUARE，直接应用的极少                     |
-| HEIGHTMAP_SQUARE           | ConfiguredPlacement<?>                 | 由HEIGHTMAP调用square()方法得来，即在当前区块16*16范围内随机选一个表层方块 | 应用非常广泛，绝大多数主世界树林、花卉，还有部分草、蕨类、蘑菇使用此分布 |
-| HEIGHTMAP_DOUBLE           | ConfiguredPlacement<NoPlacementConfig> | 根据指定的x，z，在高度图中得到此点高度y后，从0~2y的高度任意选择一个方块 | 仅被应用于HEIGHTMAP_DOUBLE_SQUARE                            |
-| HEIGHTMAP_DOUBLE_SQUARE    | ConfiguredPlacement<?>                 | 由HEIGHTMAP_DOUBLE调用square()方法得来，在某区块范围内选择某x、z，根据高度图得到y后选择（0，2y）的某方块 | 应用非常广泛，绝大多数草和低矮植物采用此分布。甘蔗、仙人掌也采用此分布。但两格高的草不会。 |
-| HEIGHTMAP_WORLD_SURFACE    | ConfiguredPlacement<NoPlacementConfig> | 根据指定的x、z，按WORLD_SURFACE_WG规则在区块高度图选择最顶上的一个方块 | 只用在竹子生成中                                             |
-| TOP_SOLID_HEIGHTMAP        | Placement<NoPlacementConfig>           | 根据指定的x、z，按OCEAN_FLOOR_WG  规则在区块高度图选择最顶上的一个方块 | 海带和珊瑚礁的生成                                           |
-| TOP_SOLID_HEIGHTMAP_SQUARE | ConfiguredPlacement<?>                 | TOP_SOLID_HEIGHTMAP通过square()方法得来，选择区块中海床的顶层方块 | 海草和湖底圆盘的生成                                         |
+| **分布**                   | **类型**                                     | **特征**                                                     | **实例**                                                     |
+| -------------------------- | -------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| *CHANCE*                   | Placement&lt;ChanceConfig&gt;                | 每区块有1/x的几率生成此特性                                  | 已被包装成chance()方法                                       |
+| COUNT                      | Placement&lt;FeatureSpreadConfig&gt;         | 每区块尝试生成x次此特性                                      | 已被包装成count()方法                                        |
+| COUNT_NOISE                | Placement&lt;NoiseDependant&gt;              | 根据生物群系柏林噪声决定生成密度                             | 部分草采用此分布                                             |
+| COUNT_NOISE_BIASED         | Placement&lt;TopSolidWithNoiseConfig&gt;     | 与上一个相似，但采用了配置使得噪声更可控，是数种二次汇总产物的基础 | 用于海带、竹子、珊瑚礁                                       |
+| COUNT_EXTRA                | Placement&lt;AtSurfaceWithExtraConfig&gt;    | 与COUNT相似，但有1/x的额外生成率，见名知义，它多用于地表特性生成 | 只要是树林都采用此分布                                       |
+| ADD_32                     | ConfiguredPlacement&lt;?&gt;                 | 在区块内根据x，z获取高度y后，选择[y，y+32）的某方块          | 花卉、高草丛采用此分布                                       |
+| RANGE                      | Placement&lt;TopSolidRangeConfig&gt;         | 根据给定的x，z，选择y在某区间的某方块                        | 已被包装成range()方法，广泛用于下界特性、主世界矿石（除绿宝石外）的生成 |
+| SQUARE                     | Placement&lt;NoPlacementConfig&gt;           | 在当前区块给定高度的16*16范围内，随机选一个方块              | 已被包装成square()方法                                       |
+| HEIGHTMAP                  | ConfiguredPlacement&lt;NoPlacementConfig&gt; | 根据指定的x、z，按MOTION_BLOCKING规则在区块高度图选择最顶上的一个方块 | 被应用于HEIGHTMAP_SQUARE，直接应用的极少                     |
+| HEIGHTMAP_SQUARE           | ConfiguredPlacement&lt;?&gt;                 | 由HEIGHTMAP调用square()方法得来，即在当前区块16*16范围内随机选一个表层方块 | 应用非常广泛，绝大多数主世界树林、花卉，还有部分草、蕨类、蘑菇使用此分布 |
+| HEIGHTMAP_DOUBLE           | ConfiguredPlacement&lt;NoPlacementConfig&gt; | 根据指定的x，z，在高度图中得到此点高度y后，从0~2y的高度任意选择一个方块 | 仅被应用于HEIGHTMAP_DOUBLE_SQUARE                            |
+| HEIGHTMAP_DOUBLE_SQUARE    | ConfiguredPlacement&lt;?&gt;                 | 由HEIGHTMAP_DOUBLE调用square()方法得来，在某区块范围内选择某x、z，根据高度图得到y后选择（0，2y）的某方块 | 应用非常广泛，绝大多数草和低矮植物采用此分布。甘蔗、仙人掌也采用此分布。但两格高的草不会。 |
+| HEIGHTMAP_WORLD_SURFACE    | ConfiguredPlacement&lt;NoPlacementConfig&gt; | 根据指定的x、z，按WORLD_SURFACE_WG规则在区块高度图选择最顶上的一个方块 | 只用在竹子生成中                                             |
+| TOP_SOLID_HEIGHTMAP        | Placement&lt;NoPlacementConfig&gt;           | 根据指定的x、z，按OCEAN_FLOOR_WG  规则在区块高度图选择最顶上的一个方块 | 海带和珊瑚礁的生成                                           |
+| TOP_SOLID_HEIGHTMAP_SQUARE | ConfiguredPlacement&lt;?&gt;                 | TOP_SOLID_HEIGHTMAP通过square()方法得来，选择区块中海床的顶层方块 | 海草和湖底圆盘的生成                                         |
 
 
 
@@ -259,47 +259,17 @@ public static final ConfiguredFeature<?, ?> TREES_BIRCH
               );
 ```
 
-![image-20220518222037149](https://img-blog.csdnimg.cn/b204e58cc3f2491e8cb3b4c6ae611a81.png)
+![image-20220518222037149](https://img-blog.csdnimg.cn/5c99a9a98dcc405a90a343ccebc3bc49.png)
 
-事实上每区块的白桦树可能大于3棵，并没有实际测试过，图示仅为参考。
+注：此图并不等同于实际生成的情景，均为作者对源码的个人理解，如有出入请指正。
 
-也许大家会问，为什么ConfiguredFeature第一次place的时候找到DecoratedFeature，第二次就找到TreeFeature了呢？事实上，这两个ConfiguredFeature是类型相同但内容不同的两个对象。这和decorated()方法有关，接下来简要介绍一下。
+也许大家会问，为什么ConfiguredFeature第一、二次place的时候找到DecoratedFeature，第三次就找到TreeFeature了呢？事实上，是包装的缘故，和decorated()方法有关，接下来简要介绍一下。
 
 
 
 ### decorated()方法与DecoratedFeature类
 
-DecoratedFeature继承了Feature，是一个十分重要的类，几乎所有的ConfiguredFeature都和它有关系。
-
-```java
-//ConfiguredFeature.java  
-
-public ConfiguredFeature<?, ?> decorated(ConfiguredPlacement<?> p_227228_1_) {
-      return Feature.DECORATED.configured(new DecoratedFeatureConfig(() -> {
-         return this;
-      }, p_227228_1_));
-   }
-```
-
-```java
-//Feature.java
-
-public static final Feature<DecoratedFeatureConfig> DECORATED = register("decorated", new DecoratedFeature(DecoratedFeatureConfig.CODEC));
-//...
-
-public ConfiguredFeature<FC, ?> configured(FC p_225566_1_) {
-   return new ConfiguredFeature<>(this, p_225566_1_);
-}
-```
-
-```java
-//DecoratedFeatureConfig.java
-
-public DecoratedFeatureConfig(Supplier<ConfiguredFeature<?, ?>> p_i241984_1_, ConfiguredPlacement<?> p_i241984_2_) {
-   this.feature = p_i241984_1_;
-   this.decorator = p_i241984_2_;
-}
-```
+DecoratedFeature继承了Feature，是一个十分重要的类，所有经过decorated()、count()、square()修饰的ConfiguredFeature都和它有关系。
 
 还是以上面的白桦树林举例子。
 
@@ -316,15 +286,58 @@ public static final ConfiguredFeature<?, ?> TREES_BIRCH
 
 里面用了两个decorated()，我们只研究其中的一个就行了，比如说`decorated(Features.Placements.HEIGHTMAP_SQUARE)`。
 
+```java
+public static final ConfiguredFeature<?, ?> TREES_BIRCH
+    = register("trees_birch", 
+               BIRCH_BEES_0002
+               	.decorated(Features.Placements.HEIGHTMAP_SQUARE)
+              );
+//只关注一个decor
+```
+
 我们知道BIRCH_BEES_0002是二次汇总产物，类型是ConfiguredFeature。
 
-decorated()方法返回的也是ConfiguredFeature，参数是ConfiguredPlacement类型。
+decorated()方法返回的也是ConfiguredFeature，需要传入一个ConfiguredPlacement类型的参数。这里有个现成的ConfiguredPlacement，就是HEIGHTMAP_SQUARE。
+
+```java
+//ConfiguredFeature.java  
+
+public ConfiguredFeature<?, ?> decorated(ConfiguredPlacement<?> p_227228_1_) {
+      return Feature.DECORATED.configured(new DecoratedFeatureConfig(
+          () -> {
+         		return this;
+      			}, 
+          p_227228_1_
+      )
+                                         );
+   }
+```
+
+```java
+//DecoratedFeatureConfig.java
+
+public DecoratedFeatureConfig(Supplier<ConfiguredFeature<?, ?>> p_i241984_1_, ConfiguredPlacement<?> p_i241984_2_) {
+   this.feature = p_i241984_1_;
+   this.decorator = p_i241984_2_;
+}
+```
 
 在decorated()方法内部，我们手动用一个**函数式接口的原来的ConfiguredFeature**和**刚才传入的ConfiguredPlacement**构建一个新的DecoratedFeatureConfig对象。（我其实不太了解函数式接口，但鉴于Mojang经常用它，还是尽量学习一下）
 
+```java
+//Feature.java
+
+public static final Feature<DecoratedFeatureConfig> DECORATED = register("decorated", new DecoratedFeature(DecoratedFeatureConfig.CODEC));
+//...
+
+public ConfiguredFeature<FC, ?> configured(FC p_225566_1_) {
+   return new ConfiguredFeature<>(this, p_225566_1_);
+}
+```
+
 将这个对象传入configured()方法，构建并返回一个新的ConfiguredFeature。
 
-这个ConfiguredFeature已经被包装了，它的Feature变成了Feature<DecoratedFeatureConfig>类型的常量**DECORATED**，它的config变成了DecoratedFeatureConfig，原来的ConfiguredFeature就被包在这个config里面。
+这个ConfiguredFeature已经被包装了，它的Feature变成了Feature&lt;DecoratedFeatureConfig&gt;类型的常量**DECORATED**，它的config变成了DecoratedFeatureConfig，原来的ConfiguredFeature就被包在这个config里面。
 
 ConfiguredFeature调place()，实际上在调它内部Feature的place()。
 
@@ -334,7 +347,7 @@ ConfiguredFeature调place()，实际上在调它内部Feature的place()。
    }
 ```
 
-新的ConfiguredFeature调place方法的时候，自然会调DecoratedFeature类里面的place()，因为DecoratedFeature属于Feature<DecoratedFeatureConfig>类型。
+新的ConfiguredFeature调place方法的时候，自然会调DecoratedFeature类里面的place()，因为DecoratedFeature属于Feature&lt;DecoratedFeatureConfig&gt;类型。
 
 ```java
 public class DecoratedFeature extends Feature<DecoratedFeatureConfig>{}
