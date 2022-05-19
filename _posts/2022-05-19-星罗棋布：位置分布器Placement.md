@@ -112,25 +112,7 @@ public static final ConfiguredFeature<?, ?> TREES_BIRCH
 
 以下的常量都是Features里出现频率相当高的。作者认真研究了下表每个Placement和ConfiguredPlacement的算法，对于这些分布给出了一个合理的解释。
 
-| **分布**                   | **类型**                                     | **特征**                                                     | **实例**                                                     |
-| -------------------------- | -------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| *CHANCE*                   | Placement&lt;ChanceConfig&gt;                | 每区块有1/x的几率生成此特性                                  | 已被包装成chance()方法                                       |
-| COUNT                      | Placement&lt;FeatureSpreadConfig&gt;         | 每区块尝试生成x次此特性                                      | 已被包装成count()方法                                        |
-| COUNT_NOISE                | Placement&lt;NoiseDependant&gt;              | 根据生物群系柏林噪声决定生成密度                             | 部分草采用此分布                                             |
-| COUNT_NOISE_BIASED         | Placement&lt;TopSolidWithNoiseConfig&gt;     | 与上一个相似，但采用了配置使得噪声更可控，是数种二次汇总产物的基础 | 用于海带、竹子、珊瑚礁                                       |
-| COUNT_EXTRA                | Placement&lt;AtSurfaceWithExtraConfig&gt;    | 与COUNT相似，但有1/x的额外生成率，见名知义，它多用于地表特性生成 | 只要是树林都采用此分布                                       |
-| ADD_32                     | ConfiguredPlacement&lt;?&gt;                 | 在区块内根据x，z获取高度y后，选择[y，y+32）的某方块          | 花卉、高草丛采用此分布                                       |
-| RANGE                      | Placement&lt;TopSolidRangeConfig&gt;         | 根据给定的x，z，选择y在某区间的某方块                        | 已被包装成range()方法，广泛用于下界特性、主世界矿石（除绿宝石外）的生成 |
-| SQUARE                     | Placement&lt;NoPlacementConfig&gt;           | 在当前区块给定高度的16*16范围内，随机选一个方块              | 已被包装成square()方法                                       |
-| HEIGHTMAP                  | ConfiguredPlacement&lt;NoPlacementConfig&gt; | 根据指定的x、z，按MOTION_BLOCKING规则在区块高度图选择最顶上的一个方块 | 被应用于HEIGHTMAP_SQUARE，直接应用的极少                     |
-| HEIGHTMAP_SQUARE           | ConfiguredPlacement&lt;?&gt;                 | 由HEIGHTMAP调用square()方法得来，即在当前区块16*16范围内随机选一个表层方块 | 应用非常广泛，绝大多数主世界树林、花卉，还有部分草、蕨类、蘑菇使用此分布 |
-| HEIGHTMAP_DOUBLE           | ConfiguredPlacement&lt;NoPlacementConfig&gt; | 根据指定的x，z，在高度图中得到此点高度y后，从0~2y的高度任意选择一个方块 | 仅被应用于HEIGHTMAP_DOUBLE_SQUARE                            |
-| HEIGHTMAP_DOUBLE_SQUARE    | ConfiguredPlacement&lt;?&gt;                 | 由HEIGHTMAP_DOUBLE调用square()方法得来，在某区块范围内选择某x、z，根据高度图得到y后选择（0，2y）的某方块 | 应用非常广泛，绝大多数草和低矮植物采用此分布。甘蔗、仙人掌也采用此分布。但两格高的草不会。 |
-| HEIGHTMAP_WORLD_SURFACE    | ConfiguredPlacement&lt;NoPlacementConfig&gt; | 根据指定的x、z，按WORLD_SURFACE_WG规则在区块高度图选择最顶上的一个方块 | 只用在竹子生成中                                             |
-| TOP_SOLID_HEIGHTMAP        | Placement&lt;NoPlacementConfig&gt;           | 根据指定的x、z，按OCEAN_FLOOR_WG  规则在区块高度图选择最顶上的一个方块 | 海带和珊瑚礁的生成                                           |
-| TOP_SOLID_HEIGHTMAP_SQUARE | ConfiguredPlacement&lt;?&gt;                 | TOP_SOLID_HEIGHTMAP通过square()方法得来，选择区块中海床的顶层方块 | 海草和湖底圆盘的生成                                         |
-
-
+![](https://img-blog.csdnimg.cn/fa1551cc69d4423db96efc93f5cd23f3.png)
 
 ### Placement的本质实现
 
@@ -242,7 +224,7 @@ public void generate(StructureManager p_242427_1_, ChunkGenerator p_242427_2_, W
 
 简单地来说，就是先获取生物群系特性列表，遍历之，对每一个特性调一次place。到此，源码就追到头了，再向上走就要谈生物群系的生成了（这个我确实不会……）
 
-
+<br />
 
 好了，我画一个流程图说明一下一般特性的放置过程：
 
