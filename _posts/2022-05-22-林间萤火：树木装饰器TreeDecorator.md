@@ -4,9 +4,11 @@ layout: post
 
 ------
 
-<img src="https://www.mcmod.cn/pages/center/208/album/20150313/14262320907576.png" alt="img" style="zoom:150%;" />
+<img src="https://img-blog.csdnimg.cn/img_convert/3d76f429b912a54801f90151d3c8c73a.png" alt="img" style="zoom:150%;" />
 
-> 暮色森林模组的生物群系之一：萤火虫森林。冒险者常常在这里看到镶嵌萤火虫罐子的“路灯”，这些遗迹仿佛预示着这里曾经存在文明。
+> 暮色森林模组的生物群系之一：萤火虫森林。
+>
+> *“冒险者常常在这里看到镶嵌萤火虫罐子的“路灯”，这些遗迹仿佛预示着这里曾经存在文明。”*
 
 
 
